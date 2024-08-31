@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuentes de consulta</title>
+    <style>
+        /* Estilos para el cuerpo de la página */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Estilos para el contenedor del título */
+        .header {
+            text-align: center;
+            padding: 20px;
+            background-color: #f4f4f4;
+            position: relative; /* Necesario para la animación */
+            overflow: hidden; /* Oculta contenido que se sale del contenedor */
+        }
+
+        /* Estilos para la animación del título */
+        .title {
+            font-size: 2.5em;
+            margin: 0;
+            position: relative; /* Necesario para la animación */
+            animation: slideIn 1s ease-out; /* Animación CSS */
+        }
+
+        /* Definición de la animación */
+        @keyframes slideIn {
+            from {
+                top: -100px; /* Empieza fuera de la pantalla, en la parte superior */
+                opacity: 0; /* Empieza transparente */
+            }
+            to {
+                top: 0; /* Termina en la posición original */
+                opacity: 1; /* Totalmente visible */
+            }
+        }
+
+        /* Estilos para el menú de navegación */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+
+        /* Estilos para los elementos del menú */
+        .navbar a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer; /* Cambia el cursor para los enlaces */
+        }
+
+        /* Estilos para cambiar el color de fondo al pasar el cursor */
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Estilos para la sección de contenido */
+        .content {
+            padding: 20px;
+        }
+
+        /* Estilos para la sección de Inicio */
+        .inicio {
+            display: flex;
+            flex-direction: column; /* Para apilar los elementos verticalmente */
+            justify-content: center;
+            align-items: center;
+            height: 300px; /* Ajusta la altura según sea necesario */
+            text-align: center;
+            overflow: hidden; /* Asegura que el texto animado no se salga del contenedor */
+        }
+
+        .inicio h2 {
+            font-size: 2em; /* Ajusta el tamaño de fuente según sea necesario */
+            margin: 0;
+            animation: fadeInUp 2s ease-out; /* Aplicar la animación */
+        }
+
+        /* Definición de la animación fadeInUp */
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(50px); /* Empieza desplazado hacia abajo */
+                opacity: 0; /* Empieza transparente */
+            }
+            to {
+                transform: translateY(0); /* Termina en la posición original */
+                opacity: 1; /* Totalmente visible */
+            }
+        }
+
+        /* Estilos para la animación del título de temas */
+        .temas-title {
+            font-size: 2em;
+            margin: 20px 0;
+            opacity: 0; /* Inicialmente oculto para animación */
+            transform: translateY(50px); /* Inicialmente desplazado hacia abajo */
+            animation: fadeInUp 1s ease-out forwards; /* Animación de entrada */
+        }
+
+        /* Estilos para la animación del submenú */
+        .submenu {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0 0;
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            opacity: 0; /* Inicialmente oculto para animación */
+            transform: translateY(20px); /* Inicialmente desplazado hacia abajo */
+            animation: fadeInUp 1s ease-out forwards; /* Animación de entrada */
+        }
+
+        .submenu li {
+            padding: 10px;
+        }
+
+        .submenu a {
+            color: black;
+            text-decoration: none;
+            display: block; /* Asegura que el enlace ocupe todo el ancho del elemento */
+        }
+
+        .submenu a:hover {
+            background-color: #ddd;
+        }
+
+        /* Estilos para las secciones de los temas */
+        .topic-content {
+            display: none; /* Oculta todas las secciones de temas por defecto */
+            margin-top: 20px;
+        }
+
+        .topic-content.active {
+            display: block; /* Muestra la sección activa */
+        }
+
+        /* Estilos para los subtítulos de los temas */
+        .topic-content h3 {
+            font-size: 1.8em; /* Tamaño menor que el de "Libros" */
+            margin: 0;
+        }
+
+        /* Estilos para el subtítulo "Libros" */
+        .books-subtitle {
+            font-size: 1.5em; /* Tamaño menor que antes */
+            margin: 20px 0 10px;
+            font-weight: bold; /* Negritas */
+            display: none; /* Inicialmente oculto */
+        }
+    </style>
+</head>
+<body>
+    <!-- Título principal de la página -->
+    <div class="header">
+        <h1 class="title">Fuentes de consulta - Estructuras discretas</h1>
+    </div>
+
+    <!-- Menú de navegación principal -->
+    <div class="navbar">
+        <a href="#" onclick="mostrarInicio()">Inicio</a> <!-- Enlace para mostrar la sección de inicio -->
+        <a href="estructuras_discretas.pdf" target="_blank">Programa de estudio</a>
+        <a href="#" onclick="mostrarTemas()">Libros</a> <!-- Enlace para mostrar la sección de temas -->
+    </div>
+
+    <!-- Contenido de la página -->
+    <div class="content">
+        <!-- Sección de Inicio con texto centrado y animación -->
+        <div id="inicio" class="inicio">
+            <h2>Grupo: 01<br><br></h2>
+            <h2>Integrantes:<br><br>
+                NL: 13 Guerra Marcelino Brenda Paola<br>
+                NL: 16 Noyola Torres Pablo Sebastian<br>
+                NL: 20 Rodríguez Juárez Vanessa
+            </h2>
+        </div>
+
+        <!-- Sección de Temas (inicialmente oculta) -->
+        <div id="temas" style="display: none;">
+            <h2 class="temas-title">Libros</h2> <!-- Título de la sección de temas -->
+            <ul class="submenu">
+                <li><a href="#" onclick="mostrarContenido('libro1')">1. Algorithms: Sequential, Parallel, and Distributed</a></li>
+                <li><a href="#" onclick="mostrarContenido('libro2')">2. Discrete mathematics with applications</a></li>
+                <li><a href="#" onclick="mostrarContenido('libro3')">3. Matemática discreta y lógica: Una perspectiva desde la Ciencia de la Computación</a></li>
+                <li><a href="#" onclick="mostrarContenido('libro4')">4. DISCRETE MATHEMATICS</a></li>
+                <li><a href="#" onclick="mostrarContenido('libro5')">5. DISCRETE MATHEMATICAL STRUCTURES</a></li>
+                <li><a href="#" onclick="mostrarContenido('libro6')">6. Elements of discrete mathematics / Elementos de matemáticas discretas</a></li>
+                <li><a href="#" onclick="mostrarContenido('libro7')">7. Matemáticas discretas y sus aplicaciones</a></li>
+                <li><a href="#" onclick="mostrarContenido('libro8')">8. Matemáticas discretas con aplicación a las ciencias de la computación</a></li>
+                <li><a href="#" onclick="mostrarContenido('libro9')">9. MATEMÁTICAS DISCRETAS CON TEORÍA DE GRÁFICAS Y COMBINATORIA</a></li>
+                <li><a href="#" onclick="mostrarContenido('libro10')">10. Estructuras discretas. Lógica proposicional y cálculo de predicados</a></li>
+                <li><a href="#" onclick="mostrarContenido('libro11')">11. Introductory Discrete Mathematics</a></li>
+                <li><a href="#" onclick="mostrarContenido('libro12')">12. Matemática discreta</a></li>
+                <li><a href="#" onclick="mostrarContenido('libro13')">13. Matemáticas discretas con aplicaciones</a></li>
+                <li><a href="#" onclick="mostrarContenido('libro14')">14. Discrete Mathematics: Elementary and Beyond</a></li>
+                <li><a href="#" onclick="mostrarContenido('libro15')">15. Matemáticas discretas</a></li>
+                <li><a href="#" onclick="mostrarContenido('libro16')">16. Discrete Mathematics for Computer Scientists</a></li>
+            </ul>
+        </div>
+
+        <!-- Secciones de contenido para cada libro (inicialmente ocultas) -->
+        <div id="libro1" class="topic-content">
+            <h3>Algorithms: Sequential, Parallel, and Distributed</h3>
+            <p>IBERMAN, Kenneth, PAUL, Jerome</p>
+            <p>Thomson, 2005</p>            
+            <p>Accesibilidad: Este libro solo se encuentra disponible en la Biblioteca “Ing. Antonio Dovalí Jaime (Principal)” con la clasificación QA76.9A43 | B467.</p> 
+            <p>Usabilidad: Un detalle importante que se debe mencionar es que el contenido del libro está en inglés.</p> 
+            <p>Disponibilidad: Actualmente se tienen en existencia 5 ejemplares de este libro, todos disponibles en el momento de la consulta.</p>
+                Contenido: 
+                * Contiene tema 4 y 5.
+                Para el tema 4:
+                Capítulo 4 “Trees and Applications to Algorithms” - página 113.
+                Capítulo 12 “Minimum Spanning Tree and Shortest-Path Algorithms” - página 365.
+                Capítulo 21 “Balanced Search Trees” - página 653.
+                Capítulo 23 “Heuristic Search Strategies: A*-Search and Game Trees - página 715.
+                Para el tema 5:
+                Capítulo 1 “Introduction and Preliminaries” - página 3. 
+                Capítulo 2 “Design and Analysis Fundamentals” - página 23.
+            <p>Tiempo de entrega: El día que sea solicitado.</p>
+                </p>
+            
+                <div class="libro" data-info="info1">
+                    <img src="/home/sebastian/Downloads/1.jpg" alt="Libro 1" class="imagen-libro">
+                </div>           
+
+            
+            
+            
+        </div>
+        <div id="libro2" class="topic-content">
+            <h3>Discrete mathematics with applications</h3>
+            <p>EPP, Susanna S. </p>
+            <p>Boston Brooks - Cole, 2011</p>            
+            <p>Accesibilidad: Este libro solo se encuentra disponible en la Biblioteca “Mtro. Enrique Rivero Borrell (Anexo)” con la clasificación QA39.2 | E66 2017.</p> 
+            <p>Usabilidad: Un detalle importante que se debe mencionar es que el contenido del libro está en inglés, aunque en caso de ser necesario también se puede encontar el libro traducido al español por Ana Elizabeth García Hernández con la clasificación QA39.2 | E6618.
+            </p> 
+            <p>Disponibilidad: Actualmente se tienen en existencia 2 ejemplares de este libro, todos disponibles en el momento de la consulta.</p>
+                Contenido: Contiene todos los temas. 
+            <p>Tiempo de entrega: El día que sea solicitado.</p>
+                </p>
+            <div class="libro" data-info="info1">
+                <img src="/home/sebastian/Downloads/2.jpg" alt="Libro 1" class="imagen-libro">
+            </div>           
+        </div>
+        <div id="libro3" class="topic-content">
+            <h3>Matemática discreta y lógica: Una perspectiva desde la Ciencia de la Computación</h3>
+            <p>GRASSMANN, Winfried, TREMBLAY, Jean-paul </p>
+            <p>Madrid - Prentice Hall, 2003 </p>            
+            <p>Accesibilidad: Este libro solo se encuentra disponible en la Biblioteca “Ing. Antonio Dovalí Jaime (Principal)” con la clasificación QA76.9M35 | G73 1996.</p> 
+            <p>Usabilidad: Un detalle importante que se debe mencionar es que el contenido del libro está en inglés. 
+            </p> 
+            <p>Disponibilidad: Actualmente se tienen en existencia 8 ejemplares de este libro, todos disponibles en el momento de la consulta.</p>
+                Contenido: Contiene todos los temas.
+                Tema 1: Capítulo 1 “Propositional Calculus” - página 1. Capítulo 2 “Predicate Calculus” - página 59.
+Tema 2:
+Capítulo 5 “Sets and Relations” - página 230.
+Tema 3:
+Capítulo 6 “Functions” - página 281.
+Tema 4:
+Capítulo 7 “Graphs and Trees” - página 353. 
+Tema 5:
+Capítulo 3 “Induction and Recursion” - página 121. 
+Capítulo 9 “Program Correctness Proofs” - página 481.
+Capítulo 12 “An Overview of Relational Database System” - página 592.
+
+            <p>Tiempo de entrega: El día que sea solicitado.</p>
+                </p>
+                <div class="libro" data-info="info1">
+                    <img src="/home/sebastian/Downloads/3.jpg" alt="Libro 1" class="imagen-libro">
+                </div>  
+        </div>
+        <div id="libro4" class="topic-content">
+            <h3>DISCRETE MATHEMATICS</h3>
+            <p>JOHNSONBAUGH, Richard </p>
+            <p>London - Pearson, 2008/p>            
+            <p>Accesibilidad: Ubicado dentro de la facultad de ingeniería en la biblioteca Antonio Dovalí Jaime, este se encuentra en la clasificación QA39.2 | J64.</p> 
+            <p>Usabilidad: Su contenido es en inglés por lo cual podría ser complicado de entender para quienes lo consulten.
+            </p> 
+            <p>Disponibilidad: Tiene una alta disponibilidad con una cantidad de ejemplares aceptable para consultar.</p>
+                Contenido: El contenido dentro del libro que puede ayudarnos dentro del curso es el siguiente…
+                Contiene todos los temas. 
+                
+                3 BINARY RELATIONS 120
+                3.1 Binary relations and Digraph página 120
+                3.2 Trees Página 131
+                
+            <p>Tiempo de entrega: Inmediata</p>
+                </p>
+                <div class="libro" data-info="info1">
+                    <img src="/home/sebastian/Downloads/4.jpg" alt="Libro 1" class="imagen-libro">
+                </div>  
+        </div>
+        <div id="libro5" class="topic-content">
+            <h3>DISCRETE MATHEMATICAL STRUCTURES</h3>
+            <p>JOHNSONBAUGH, Richard </p>
+            <p>London - Pearson, KOLMAN, Bernard 2008 </p>            
+            <p>Accesibilidad: Ubicado dentro de la facultad de ingeniería en la biblioteca Antonio Dovalí Jaime, este se encuentra en la clasificación QA76.9 | K64.</p> 
+            <p>Usabilidad: Su contenido es en inglés por lo cual podría ser complicado de entender para quienes lo consulten.
+            </p> 
+            <p>Disponibilidad: Tiene una alta disponibilidad con una cantidad de ejemplares aceptable para consultar.</p>
+                Contenido: El contenido dentro del libro que puede ayudarnos dentro del curso es el siguiente…
+
+                Contiene todos los temas.
+                
+                6 Topics in Graph Theory 197
+                6.1 Graphs página 197
+                6.2 Euler Paths and Circuits página  204
+                6.3 Hamiltonian Paths and Circuits página  213
+                
+                8 Trees 286
+                8.1 Trees página página  286
+                8.2 Labeled Trees página  292
+                8.3 Tree Searching página  299
+                
+                
+            <p>Tiempo de entrega: Inmediata</p>
+                </p>
+                <div class="libro" data-info="info1">
+                    <img src="/home/sebastian/Downloads/5.jpg" alt="Libro 1" class="imagen-libro">
+                </div>  
+        </div>
+        <div id="libro6" class="topic-content">
+            <h3>Elements of discrete mathematics / Elementos de matemáticas discretas</h3>
+            <p> LIU, C. L.</p>
+            <p>Pearson, 2008</p>            
+            <p>Accesibilidad: Ubicado dentro de la facultad de ingeniería en la biblioteca Antonio Dovalí Jaime, este se encuentra en la clasificación QA76.9 | K64.</p> 
+            <p>Usabilidad: Su contenido es en inglés por lo cual podría ser complicado de entender para quienes lo consulten.
+            </p> 
+            <p>Disponibilidad: Tiene una alta disponibilidad con una cantidad de ejemplares aceptable para consultar.</p>
+                Contenido: El contenido dentro del libro que puede ayudarnos dentro del curso es el siguiente…
+
+                Contiene todos los temas. 
+
+                4 GRAPHS AND PLANAR GRAPHS 82
+                4.3 Multigraphs and Weighted Graphs página 87
+                4.4 Paths and Circuits página 90
+                4.5 Shortest Paths in Weighted Graphs página 92
+                4.6 Eulerian Paths and Circuits página 94
+                5.7 Hamiltonian Paths and Circuits página 100
+                4.9 Factors of a Graphs página 110
+                4.10 Planar Graphs página 113
+                
+                5 TREES AND CUT-SETS 129
+                5.1 Trees página 129
+                5.2 Rooted Trees página 133
+                5.3 Path Lengths in Rooted Trees página 136     
+                
+                
+            <p>Tiempo de entrega: Inmediata</p>
+                </p>
+                <div class="libro" data-info="info1">
+                    <img src="/home/sebastian/Downloads/6.jpg" alt="Libro 1" class="imagen-libro">
+                </div>  
+        </div>
+
+        <div id="libro7" class="topic-content">
+            <h3>Matemáticas discretas y sus aplicaciones</h3>
+            <p>ROSEN, Kenneth/p>
+            <p>Mexico - McGraw-Hill, 1995</p>            
+            <p>Accesibilidad: Ubicado dentro de la facultad de ingeniería en la biblioteca Antonio Dovalí Jaime, este se encuentra en la clasificación QA76.9 | K64.</p> 
+            <p>Usabilidad: Su contenido es en inglés por lo cual podría ser complicado de entender para quienes lo consulten.
+            </p> 
+            <p>Disponibilidad: Tiene una alta disponibilidad con una cantidad de ejemplares aceptable para consultar.</p>
+            Contenido: El contenido dentro del libro que puede ayudarnos dentro del curso es el siguiente…
+
+            Contiene todos los temas.
+            
+            9 Graphs 589
+            9.1 Graphs and Graph Models página 589
+            9.2 Graph Terminology and Special Types of Graphs página 597
+            9.3 Representing Graphs and Graph Isomorphism página 611
+            9.5 Euler and Hamilton Paths página 633
+            9.7 Planar Graphs página 657
+            
+            10 Trees 683
+            10.1 Introduction to Trees página 683
+            10.2 Applications of Trees página 695
+            
+                
+                
+            <p>Tiempo de entrega: Inmediata</p>
+                </p>
+                <div class="libro" data-info="info1">
+                    <img src="/home/sebastian/Downloads/7.jpg" alt="Libro 1" class="imagen-libro">
+                </div>  
+        </div>
+        <div id="libro8" class="topic-content">
+            <h3>Matemáticas discretas con aplicación a las ciencias de la computación</h3>
+            <p>TREMBLAY, Jean-paul, MANOHAR, Ram, RANGEL, Raymundo (TRAD.)</p>
+            <p>México - CECSA, 2000</p>            
+            <p>Accesibilidad: Este libro se encuentra disponible en la Biblioteca “Ing. Antonio Dovalí Jaime (Principal)” con la clasificación QA39.2 | T44 en inglés y también se encuentra disponible en la Biblioteca “Mtro. Enrique Rivero Borrell (Anexo)” con la clasificación QA39.2 | T44 1996 traducido al español.</p> 
+            <p>Usabilidad: Se puede elegir el idioma en el que se desea obtener el contenido, ya que hay opción dependiendo de la Biblioteca visitada.
+            </p> 
+            <p>Disponibilidad: Actualmente se tienen en existencia 18 ejemplares del libro en inglés y 23 ejemplares del libro traducido al español, todos disponibles en el momento de la consulta. </p>
+            Contenido: Contiene todos los temas.
+            Tema 1:
+            Capítulo 1 “Mathematical Logic” - página 1.
+            Tema 2:
+            Capítulo 2 “Set Theory” - página 104.
+            Tema 3:
+            Capítulo 3 “Algebraic Structures” - página 270.
+            Capítulo 4 “Lattices and Boolean Algebra” - página 378.
+            Tema 4:
+            Capítulo 5 “Graph Theory” - página 468. 
+            Tema 5:
+            Capítulo 6 “Introduction to Computability Theory” - página 557. 
+            
+            
+                
+                
+            <p>Tiempo de entrega: El día que sea solicitado.</p>
+        </p>
+        <div class="libro" data-info="info1">
+            <img src="/home/sebastian/Downloads/8.jpg" alt="Libro 1" class="imagen-libro">
+        </div> 
+        </div>
+        <div id="libro9" class="topic-content">
+            <h3>MATEMÁTICAS DISCRETAS CON TEORÍA DE GRÁFICAS Y COMBINATORIA.</h3>
+            <p>VEERARAJAN, T.</p>
+            <p>México - McGraw-Hill Interamericana, 2008</p>            
+            <p>Accesibilidad: Ubicado dentro de la facultad de ingeniería en la biblioteca Antonio Dovalí Jaime, este se encuentra en la clasificación QA248 | V4418.</p> 
+            <p>Usabilidad: Su contenido es en español por lo cual no es complicado entenderlo, únicamente buscando los capítulos que se mencionan en el contenido es suficiente ya que la información que presenta es clara y concisa.
+            </p> 
+            <p>Disponibilidad: Tiene una alta disponibilidad con una cantidad de ejemplares aceptable para consultar.</p>
+            Contenido: El contenido dentro del libro que puede ayudarnos dentro del curso es el siguiente…
+
+            Contiene todos los temas.
+            
+            2. TEORÍA DE CONJUNTOS 51
+            Introducción página 51
+            Conceptos básicos y notaciones página 51
+            Pares ordenados y producto cartesiano página 53
+            Operaciones con conjuntos página 54
+            
+            
+                
+                
+            <p>Tiempo de entrega: Inmediata</p>
+                </p>
+                <div class="libro" data-info="info1">
+                    <img src="/home/sebastian/Downloads/9.jpg" alt="Libro 1" class="imagen-libro">
+                </div> 
+        </div>
+        <div id="libro10" class="topic-content">
+            <h3>Estructuras discretas. Lógica proposicional y cálculo de predicados</h3>
+            <p>ZALDIVAR ESQUIVEL, Orlando, ZALDIVAR ZAMORATEGUI, Orlando</p>
+            <p>México - UNAM, Facultad de Ingeniería, 2011</p>            
+            <p>Accesibilidad: Este libro se encuentra disponible en la Biblioteca “Ing. Antonio Dovalí Jaime (Principal)” con la clasificación BC181 | Z35 y también se encuentra disponible en la Biblioteca “Mtro. Enrique Rivero Borrell (Anexo)” con la clasificación BC181 | Z35.            </p> 
+            <p>Usabilidad: La información se encuentra originalmente en el idioma español, lo que puede llegar a facilitar la comprensión de la información solicitada.
+            </p> 
+            <p>Disponibilidad: Actualmente se tienen en existencia 30 ejemplares del libro en total en ambas Bibliotecas, todos disponibles en el momento de la consulta. 
+            </p>
+            Contenido: Contiene tema 1.
+            Tema 1:
+            Tabla I “Formalización de la lógica proposicional” -página 1.
+            Tabla V “Reglas específicas para el cálculo de predicados” - página 7.
+            Capítulo 4 “Elementos de inferencia para el cálculo proposicional” - página 95.
+            Capítulo 6 “Cálculo de predicados” - página 177.            
+                  
+                
+                
+            <p>Tiempo de entrega: El día que sea solicitado. </p>
+                </p>
+                <div class="libro" data-info="info1">
+                    <img src="/home/sebastian/Downloads/10.jpg" alt="Libro 1" class="imagen-libro">
+                </div> 
+        </div>
+        <div id="libro11" class="topic-content">
+            <h3>Introductory Discrete Mathematics</h3>
+            <p>BALAKRISHNAN, V. K. </p>
+            <p>New York - Dover, 2010</p>            
+            <p>Accesibilidad: Este libro se encuentra disponible en la Biblioteca “Ing. Antonio Dovalí Jaime (Principal)” con la clasificación QA39.2 | B356 1996 y también se encuentra disponible en la Biblioteca “Mtro. Enrique Rivero Borrell (Anexo)” con la clasificación QA39.2 | B356 1996.
+            </p> 
+            <p>Usabilidad: Un detalle importante que se debe mencionar es que el contenido del libro está en inglés.  
+            </p> 
+            <p>Disponibilidad: Actualmente se tienen en existencia 4 ejemplares del libro en total en ambas Bibliotecas, todos disponibles en el momento de la consulta. 
+            </p>
+                Contenido: Contiene temas 1, 2, 3 y 4.
+                Tema 1:
+                Capítulo 1 “Combinatorics” - página 35.
+                Tema 2:
+                Capítulo 0 “Set Theory and Logic” - página 1.
+                Tema 3:
+                Capítulo 3 “Generating Functions” - página 80.
+                Tema 4:
+                Capítulo 5 “Graphs and Digraphs” - página 120. 
+                
+            <p>Tiempo de entrega: El día que sea solicitado.</p>
+                </p>
+                <div class="libro" data-info="info1">
+                    <img src="/home/sebastian/Downloads/11.jpg" alt="Libro 1" class="imagen-libro">
+                </div> 
+        </div>
+        <div id="libro12" class="topic-content">
+            <h3>Matemática discreta</h3>
+            <p>COMELLAS, Francesc </p>
+            <p>México - Alfaomega, 2002</p>            
+            <p>Accesibilidad: Este libro solo se encuentra disponible en la Biblioteca “Mtro. Enrique Rivero Borrell (Anexo)” con la clasificación QA37.3 | M3718 2002.</p> 
+            <p>Usabilidad: La información se encuentra originalmente en el idioma español, lo que puede llegar a facilitar la comprensión de la información solicitada.
+            </p> 
+            <p>Disponibilidad: Actualmente se tienen en existencia 5 ejemplares de este libro, todos disponibles en el momento de la consulta. 
+            </p>
+                Contenido: Contiene temas 1, 2, 3 y 4.
+            <p>Tiempo de entrega: El día que sea solicitado.</p>
+                </p>
+                <div class="libro" data-info="info1">
+                    <img src="/home/sebastian/Downloads/12.jpg" alt="Libro 1" class="imagen-libro">
+                </div> 
+        </div>
+        <div id="libro13" class="topic-content">
+            <h3>Matemáticas discretas</h3>
+            <p>ESPINOSA, Ramón </p>
+            <p>México - Alfaomega, 2010</p>            
+            <p>Accesibilidad: Este libro solo se encuentra disponible en la Biblioteca “Mtro. Enrique Rivero Borrell (Anexo)” con la clasificación QA39.3 | E76 2017.
+            </p> 
+            <p>Usabilidad: La información se encuentra originalmente en el idioma español, lo que puede llegar a facilitar la comprensión de la información solicitada.
+            </p> 
+            <p>Disponibilidad: Actualmente se tiene en existencia 1 ejemplar de este libro, disponible en el momento de la consulta. 
+            </p>
+            Contenido: Contiene temas 1, 2, 3 y 4.
+            <p>Tiempo de entrega: El día que sea solicitado.</p>
+                </p>
+                <div class="libro" data-info="info1">
+                    <img src="/home/sebastian/Downloads/13.jpg" alt="Libro 1" class="imagen-libro">
+                </div> 
+        </div>
+        <div id="libro14" class="topic-content">
+            <h3>Discrete Mathematics: Elementary and Beyond</h3>
+            <p>LOVASZ, Laszlo</p>
+            <p>New York - Springer, 2003</p>            
+            <p>Accesibilidad: Este libro solo se encuentra disponible en la Biblioteca “Mtro. Enrique Rivero Borrell (Anexo)” con la clasificación QA39.3 | L68.
+            </p> 
+            <p>Usabilidad: Un detalle importante que se debe mencionar es que el contenido del libro está en inglés. 
+            </p> 
+            <p>Disponibilidad: Actualmente se tiene en existencia 1 ejemplar de este libro, disponible en el momento de la consulta.  
+            </p>
+            Contenido: Contiene temas 1, 2, 3 y 4.
+            <p>Tiempo de entrega: El día que sea solicitado.</p>
+        </p>
+        <div class="libro" data-info="info1">
+            <img src="/home/sebastian/Downloads/14.jpg" alt="Libro 1" class="imagen-libro">
+        </div> 
+        </div>
+        <div id="libro15" class="topic-content">
+            <h3>Matemáticas discretas</h3>
+            <p>SCHEINERMAN, Edward</p>
+            <p>México - Thomson Learning, 2001</p>            
+            <p>Accesibilidad: Este libro solo se encuentra disponible en la Biblioteca “Mtro. Enrique Rivero Borrell (Anexo)” con la clasificación QA37.2 | S3518.
+            </p> 
+            <p>Usabilidad: El contenido del libro se encuentra traducido al español por Virgilio González Pozo. 
+            </p> 
+            <p>Disponibilidad: Actualmente se tienen en existencia 6 ejemplares de este libro, todos disponibles en el momento de la consulta.  
+            </p>
+            Contenido: Contiene temas 1, 2, 3 y 4.
+            <p>Tiempo de entrega: El día que sea solicitado.</p>
+                </p>
+                <div class="libro" data-info="info1">
+                    <img src="/home/sebastian/Downloads/15.jpg" alt="Libro 1" class="imagen-libro">
+                </div> 
+        </div>
+        <div id="libro16" class="topic-content">
+            <h3>Discrete Mathematics for Computer Scientists</h3>
+            <p>STEIN, Cliff, DRYSDALE, Robert, BOGART, Kenneth</p>
+            <p>Emeryville - Addison-Wesley, 2010</p>            
+            <p>Accesibilidad: Este libro solo se encuentra disponible en la Biblioteca “Ing. Antonio Dovalí Jaime (Principal)” con la clasificación QA76.9M35 | S755.
+            </p> 
+            <p>Usabilidad: Un detalle importante que se debe mencionar es que el contenido del libro está en inglés.  
+            </p> 
+            <p>Disponibilidad: Actualmente se tienen en existencia 2 ejemplares de este libro, todos disponibles en el momento de la consulta.  
+            </p>
+            Contenido: Contiene temas 1, 2, 3 y 4.
+            <p>Tiempo de entrega: El día que sea solicitado.</p>
+                </p>
+                <div class="libro" data-info="info1">
+                    <img src="/home/sebastian/Downloads/16.jpg" alt="Libro 1" class="imagen-libro">
+                </div> 
+        </div>
+        <!-- Agrega el resto de las secciones de libros de manera similar -->
+        <div id="libro10" class="topic-content">
+            <h3>MATEMÁTICAS DISCRETAS CON TEORÍA DE GRÁFICAS Y COMBINATORIA</h3>
+            <p>Thomson, 2005</p>
+        </div>
+        <!-- Continúa agregando los contenidos para otros libros -->
+    </div>
+
+    <!-- Código JavaScript -->
+    <script>
+        // Función para mostrar la sección de inicio
+        function mostrarInicio() {
+            document.getElementById('inicio').style.display = 'flex'; // Muestra la sección de inicio
+            document.getElementById('temas').style.display = 'none'; // Oculta la sección de temas
+            document.querySelectorAll('.topic-content').forEach(function(content) {
+                content.classList.remove('active'); // Oculta todas las secciones de temas
+            });
+        }
+
+        // Función para mostrar la sección de temas
+        function mostrarTemas() {
+            document.getElementById('inicio').style.display = 'none'; // Oculta la sección de inicio
+            document.getElementById('temas').style.display = 'block'; // Muestra la sección de temas
+            document.querySelectorAll('.topic-content').forEach(function(content) {
+                content.classList.remove('active'); // Oculta todas las secciones de temas
+            });
+
+            // Muestra el submenú de libros y oculta el contenido del libro seleccionado
+            document.querySelector('.submenu').style.display = 'block';
+            document.querySelectorAll('.books-subtitle').forEach(function(subtitle) {
+                subtitle.style.display = 'none'; // Oculta los subtítulos de libros
+            });
+        }
+
+        // Función para mostrar el contenido del libro seleccionado
+        function mostrarContenido(tema) {
+            document.querySelectorAll('.topic-content').forEach(function(content) {
+                content.classList.remove('active'); // Oculta todas las secciones de temas
+            });
+            document.getElementById(tema).classList.add('active'); // Muestra la sección del tema seleccionado
+
+            // Oculta el submenú y muestra solo el contenido del libro seleccionado
+            document.querySelector('.submenu').style.display = 'none';
+            document.querySelectorAll('.books-subtitle').forEach(function(subtitle) {
+                subtitle.style.display = 'none'; // Oculta todos los subtítulos de libros
+            });
+            document.getElementById(tema + '-books').style.display = 'block'; // Muestra el subtítulo del libro seleccionado
+        }
+    </script>
+
+</body>
+</html>
